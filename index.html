@@ -1,354 +1,628 @@
+
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV Jala Mas Persada - Spesialis AC Semarang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0a74da;
+      --primary-dark: #0558a8;
+      --primary-light: #3d9aff;
+      --accent: #00c6fb;
+      --dark: #0b1f3a;
+      --dark-2: #112842;
+      --text: #2e4a6b;
+      --text-light: #6b8aad;
+      --bg: #f0f6ff;
+      --white: #ffffff;
+      --card-bg: rgba(255,255,255,0.85);
+      --shadow: 0 8px 40px rgba(10,116,218,0.12);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
 
-    <!-- Google Search Console Verification -->
-    <meta
-      name="google-site-verification"
-      content="nWn800seN5y1Ej1Zp84ViDTqJKnFWxvjJW3Y7hvLKDo"
-    />
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>CV Jala Mas Persada - Spesialis AC Semarang</title>
-  </head>
-  <body>
-    <!--=============== HEADER ===============-->
-    <header class="header" id="header">
-      <nav class="nav container">
-        <a href="#home" class="nav__logo">
-          <img
-            src="NEW JMP FAV 1X.png"
-            alt="Logo CV Jala Mas Persada"
-            class="logo-icon"
-          />
-          <img
-            src="logo JMPFont.png"
-            alt="CV. Jala Mas Persada"
-            class="logo-text"
-          />
-        </a>
+    html { scroll-behavior: smooth; }
 
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#home" class="nav__link active-link">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="#tentangkami" class="nav__link">Tentang Kami</a>
-            </li>
-            <li class="nav__item">
-              <a href="#lokasikami" class="nav__link">Lokasi</a>
-            </li>
-            <li class="nav__item">
-              <a href="#pencapaiankami" class="nav__link">Pencapaian</a>
-            </li>
-            <li class="nav__item">
-              <a href="#kontakkami" class="nav__link">Kontak kami</a>
-            </li>
-            <li class="nav__item">
-              <a href="#productunggulan" class="nav__link">Product unggulan</a>
-            </li>
-          </ul>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-          <div class="nav__close" id="nav-close">
-            <i class="ri-close-line"></i>
-          </div>
-        </div>
+    /* ---- HEADER ---- */
+    .header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(10,116,218,0.10);
+      box-shadow: 0 2px 24px rgba(10,116,218,0.07);
+      transition: box-shadow var(--transition);
+    }
 
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="ri-menu-line"></i>
-        </div>
-      </nav>
-    </header>
+    .nav {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 68px;
+    }
 
-    <!--=============== HOME ===============-->
-    <main class="main">
-      <section class="home section" id="home">
-        <div class="home__container container grid">
-          <!-- KOLOM KIRI: GAMBAR/FLYER -->
-          <div class="home__image">
-            <img
-              src="FLYER JMP NIAGA.jpg"
-              alt="CV Jala Mas Persada - Service AC Semarang"
-              class="home__img"
-            />
-          </div>
+    .nav__logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
 
-          <!-- KOLOM KANAN: TULISAN -->
-          <div class="home__data">
-            <div class="home__header">
-              <h1 class="home__title">Spesialis AC di Semarang</h1>
-            </div>
+    .logo-icon-placeholder {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.1rem;
+      flex-shrink: 0;
+    }
 
-            <div class="home__footer">
-              <a href="#kontakkami" class="button button--flex button--home">
-                <span class="button__text">Hubungi Kami Sekarang!</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    .nav__list {
+      display: flex; list-style: none; gap: 0.25rem; align-items: center;
+    }
 
-    <!--=============== TENTANG KAMI ===============-->
-    <section class="tentangkami section grid" id="tentangkami">
-      <h2 class="section__title section__title-gradient">Tentang kami</h2>
+    .nav__link {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 8px;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
 
-      <div class="about__container container grid">
-        <div class="about__content">
-          <p class="about__description">
-            Toko kami telah berdiri sejak <strong>1992</strong> dan berlokasi
-            strategis di Pertokoan Cendrawasih, Jln. Cendrawasih kav.15,
-            Semarang, Jawa Tengah. Dengan pengalaman panjang di bidang tata
-            udara, kami berkomitmen memberikan solusi pendingin terbaik untuk
-            setiap kebutuhan Anda.
-          </p>
+    .nav__link:hover,
+    .nav__link.active-link {
+      background: rgba(10,116,218,0.09);
+      color: var(--primary);
+    }
 
-          <div class="about__stats">
-            <div class="about__stat">
-              <span class="stat__number">30+</span>
-              <span class="stat__label">Tahun Pengalaman</span>
-            </div>
-            <div class="about__stat">
-              <span class="stat__number">1992</span>
-              <span class="stat__label">Tahun Berdiri</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    .nav__toggle {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
 
-    <!--=============== LOKASI ===============-->
-    <section class="lokasi section grid" id="lokasikami">
-      <h2 class="section__title section__title-gradient">Lokasi Kami</h2>
+    .nav__close {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--dark);
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+    }
 
-      <div class="lokasi__container container grid">
-        <div class="lokasi__data">
-          <p class="lokasi__description">
-            Kunjungi toko kami di:
-            <br />
-            <strong
-              >Pertokoan Cendrawasih, Jln. Cendrawasih kav.15, Semarang, Jawa
-              Tengah.</strong
-            >
-          </p>
-          <div class="lokasi__map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.349629188265!2d110.42772447499696!3d-6.968016393032561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70f356ef4e0f41%3A0xc67a4ac368bd1ca2!2sNIAGA%20AC%20-%20CV.%20JALA%20MAS%20PERSADA!5e0!3m2!1sid!2sid!4v1755273149132!5m2!1sid!2sid"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <a
-            href="https://www.google.com/maps/dir/?api=1&destination=Pertokoan+Cendrawasih,+Jln.+Cendrawasih+kav.15,+Semarang,+Jawa+Tengah"
-            target="_blank"
-            class="button button--flex"
-          >
-            <i class="ri-direction-fill button__icon"></i> Dapatkan Arah
-          </a>
-        </div>
-      </div>
-    </section>
+    /* ---- UTILITIES ---- */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-    <!--=============== PENCAPAIAN / SERTIFIKAT ===============-->
-    <section class="pencapaian section grid" id="pencapaiankami">
-      <h2 class="section__title section__title-gradient products__line">
-        Sertifikat <br />
-        kami
-      </h2>
+    .section { padding: 80px 0; }
 
-      <div class="pencapaian__container container grid">
-        <article class="pencapaian__card">
-          <div class="pencapaian__content">
-            <img
-              src="1)Sertifikat Panasonic .png"
-              alt="Sertifikat panasonic"
-              class="pencapaian__img"
-            />
-            <h3 class="pencapaian__title">Sertifikat Panasonic GOBEL</h3>
-          </div>
-        </article>
+    .section__title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-        <article class="pencapaian__card">
-          <div class="pencapaian__content">
-            <img
-              src="2) Sertifikat Daikin .png"
-              alt="Sertifikat Keunggulan Layanan Daikin"
-              class="pencapaian__img"
-            />
-            <h3 class="pencapaian__title">Keunggulan Layanan Daikin</h3>
-          </div>
-        </article>
+    .button {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+      box-shadow: 0 4px 20px rgba(10,116,218,0.3);
+      letter-spacing: -0.01em;
+    }
 
-        <article class="pencapaian__card">
-          <div class="pencapaian__content">
-            <img
-              src="3) SERTIFIKAT BEST .png"
-              alt="Sertifikat BEST"
-              class="pencapaian__img"
-            />
-            <h3 class="pencapaian__title">PT BEST</h3>
-          </div>
-        </article>
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(10,116,218,0.45);
+      filter: brightness(1.08);
+    }
 
-        <article class="pencapaian__card">
-          <div class="pencapaian__content">
-            <img
-              src="4) Sertifikat GREE .png"
-              alt="Sertifikat Teknisi Profesional Gree"
-              class="pencapaian__img"
-            />
-            <h3 class="pencapaian__title">Sertifikat dealership</h3>
-          </div>
-        </article>
+    /* ---- HOME ---- */
+    .home {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #e8f4ff 0%, #f0f9ff 40%, #dbeeff 100%);
+      position: relative;
+      overflow: hidden;
+      padding-top: 68px;
+      display: flex; align-items: center;
+    }
 
-        <article class="pencapaian__card">
-          <div class="pencapaian__content">
-            <img
-              src="5) Sertifikat Samsung .png"
-              alt="Sertifikat SAMSUNG"
-              class="pencapaian__img"
-            />
-            <h3 class="pencapaian__title">Samsung</h3>
-          </div>
-        </article>
+    .home::before {
+      content: '';
+      position: absolute; top: -120px; right: -120px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,198,251,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-        <article class="pencapaian__card">
-          <div class="pencapaian__content">
-            <img
-              src="6) SertifikatGreeTop20.png"
-              alt="Sertifikat Gree top20"
-              class="pencapaian__img"
-            />
-            <h3 class="pencapaian__title">Gree Top 20</h3>
-          </div>
-        </article>
+    .home::after {
+      content: '';
+      position: absolute; bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(10,116,218,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-        <article class="pencapaian__card">
-          <div class="pencapaian__content">
-            <img
-              src="7) Sertifikat3rdwinner.png"
-              alt="Sertifikat Pelatihan HVAC Lanjut"
-              class="pencapaian__img"
-            />
-            <h3 class="pencapaian__title">3rd Winner</h3>
-          </div>
-        </article>
-      </div>
-    </section>
+    .home__container {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      position: relative; z-index: 1;
+      padding: 60px 2rem;
+    }
 
-    <!--=============== KONTAK KAMI ===============-->
-    <section class="kontak section grid" id="kontakkami">
-      <h2 class="section__title section__title-gradient products__line">
-        Hubungi <br />
-        Kami
-      </h2>
+    .home__image {
+      display: flex; justify-content: center; align-items: center;
+    }
 
-      <div class="kontak__container container grid">
-        <article class="kontak__card">
-          <div class="kontak__content">
-            <i class="ri-whatsapp-line kontak__icon"></i>
-            <h3 class="kontak__title">WhatsApp (CHAT ONLY)</h3>
-            <span class="kontak__description">+6281215000537</span>
-            <a
-              href="https://wa.link/pfr7a1"
-              target="_blank"
-              class="button button--flex kontak__button"
-            >
-              <i class="ri-whatsapp-fill button__icon"></i> Kirim Pesan
-            </a>
-          </div>
-        </article>
+    .home__img {
+      max-width: 100%; width: 440px;
+      border-radius: var(--radius);
+      box-shadow: 0 24px 64px rgba(10,116,218,0.22);
+      transform: rotate(-1.5deg);
+      transition: transform 0.4s ease;
+    }
 
-        <article class="kontak__card">
-          <div class="kontak__content">
-            <i class="ri-instagram-line kontak__icon"></i>
-            <h3 class="kontak__title">Instagram</h3>
-            <span class="kontak__description">@niagaaircond</span>
-            <a
-              href="https://www.instagram.com/niagaaircond/"
-              target="_blank"
-              class="button button--flex kontak__button"
-            >
-              <i class="ri-instagram-fill button__icon"></i> Kunjungi Profil
-            </a>
-          </div>
-        </article>
+    .home__img:hover { transform: rotate(0deg) scale(1.02); }
 
-        <article class="kontak__card">
-          <div class="kontak__content">
-            <i class="ri-mail-line kontak__icon"></i>
-            <h3 class="kontak__title">Email</h3>
-            <span class="kontak__description">jalamaspersada@gmail.com</span>
-            <a
-              href="mailto:jalamaspersada@gmail.com"
-              class="button button--flex kontak__button"
-            >
-              <i class="ri-mail-fill button__icon"></i> Kirim Email
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
+    .home__data {
+      display: flex; flex-direction: column; gap: 2rem;
+    }
 
-    <!--=============== PRODUCT UNGGULAN ===============-->
-    <section class="productunggulan section grid" id="productunggulan">
-      <h2 class="section__title section__title-gradient products__line">
-        Product <br />
-        Unggulan
-      </h2>
+    .home__subtitle {
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      display: flex; align-items: center; gap: 8px;
+    }
 
-      <div class="products__container container grid">
-        <article class="product__card">
-          <div class="product__content">
-            <img
-              src="Midea Msafe 05crn2x.png"
-              alt="Product 1"
-              class="product__img bordered-photo"
-            />
-            <h3 class="product__title">Midea Msafe 05crn2x</h3>
-            <span class="product__description">Produk AC MIDEA</span>
-          </div>
-        </article>
+    .home__subtitle::before {
+      content: '';
+      width: 28px; height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      display: inline-block;
+    }
 
-        <article class="product__card">
-          <div class="product__content">
-            <img
-              src="Gree 0.5 pk GWC05N1A.png"
-              alt="Product 2"
-              class="product__img bordered-photo"
-            />
-            <h3 class="product__title">Gree 1/2 pk GWC05N1A</h3>
-            <span class="product__description">Produk GREE</span>
-          </div>
-        </article>
-      </div>
-    </section>
+    .home__title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+    }
 
-    <!--=============== FOOTER ===============-->
-    <footer class="footer">
-      <div class="footer__container container">
-        <p class="footer__copy">
-          © 1992-2024 CV Jala Mas Persada. All rights reserved.
-        </p>
-      </div>
-    </footer>
+    .home__title span {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-    <script src="script.js"></script>
-  </body>
-</html>
+    .home__description {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .home__badges {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: white;
+      border: 1.5px solid rgba(10,116,218,0.15);
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .badge i { font-size: 0.9rem; }
+
+    /* ---- LAYANAN ---- */
+    .layanan {
+      background: var(--white);
+      padding: 80px 0;
+    }
+
+    .layanan__grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+
+    .layanan__card {
+      background: linear-gradient(145deg, #f7fbff, #eef5ff);
+      border: 1.5px solid rgba(10,116,218,0.1);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: all var(--transition);
+      position: relative; overflow: hidden;
+    }
+
+    .layanan__card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      opacity: 0; transition: opacity var(--transition);
+    }
+
+    .layanan__card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: rgba(10,116,218,0.25);
+    }
+
+    .layanan__card:hover::before { opacity: 1; }
+
+    .layanan__icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, rgba(10,116,218,0.12), rgba(0,198,251,0.12));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .layanan__title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .layanan__desc {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* ---- TENTANG KAMI ---- */
+    .tentangkami {
+      background: linear-gradient(160deg, #0b1f3a 0%, #0a3060 100%);
+      padding: 80px 0;
+      position: relative; overflow: hidden;
+    }
+
+    .tentangkami::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,198,251,0.08) 0%, transparent 70%);
+    }
+
+    .tentangkami .section__title {
+      background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .about__container {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+
+    .about__content { color: rgba(255,255,255,0.85); }
+
+    .about__description {
+      font-size: 1.05rem; line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .about__description strong { color: var(--accent); }
+
+    .about__stats {
+      display: flex; gap: 2rem;
+    }
+
+    .about__stat {
+      display: flex; flex-direction: column; gap: 4px;
+    }
+
+    .stat__number {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem; font-weight: 800;
+      color: white;
+      line-height: 1;
+    }
+
+    .stat__label {
+      font-size: 0.82rem; font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    .about__visual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+
+    .about__feat {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      padding: 1.4rem;
+      transition: all var(--transition);
+    }
+
+    .about__feat:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(0,198,251,0.3);
+    }
+
+    .about__feat i {
+      font-size: 1.5rem; color: var(--accent); margin-bottom: 0.6rem; display: block;
+    }
+
+    .about__feat h4 {
+      font-size: 0.9rem; font-weight: 700; color: white; margin-bottom: 0.3rem;
+    }
+
+    .about__feat p {
+      font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.5;
+    }
+
+    /* ---- LOKASI ---- */
+    .lokasi {
+      background: var(--white); padding: 80px 0;
+    }
+
+    .lokasi__container {
+      display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start;
+    }
+
+    .lokasi__info {
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+
+    .lokasi__address {
+      background: linear-gradient(145deg, #f0f7ff, #e6f2ff);
+      border: 1.5px solid rgba(10,116,218,0.15);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+    }
+
+    .lokasi__address i {
+      font-size: 1.6rem; color: var(--primary); margin-bottom: 0.8rem; display: block;
+    }
+
+    .lokasi__address h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem;
+    }
+
+    .lokasi__address p {
+      font-size: 0.9rem; color: var(--text-light); line-height: 1.6;
+    }
+
+    .lokasi__address strong { color: var(--text); }
+
+    .lokasi__map iframe {
+      width: 100%; height: 380px;
+      border-radius: var(--radius);
+      border: none;
+      box-shadow: var(--shadow);
+    }
+
+    /* ---- PENCAPAIAN ---- */
+    .pencapaian {
+      background: var(--bg); padding: 80px 0;
+    }
+
+    .pencapaian__container {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+    }
+
+    .pencapaian__card {
+      background: var(--white);
+      border: 1.5px solid rgba(10,116,218,0.1);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .pencapaian__card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: rgba(10,116,218,0.25);
+    }
+
+    .pencapaian__content { padding: 1rem; text-align: center; }
+
+    .pencapaian__img {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.8rem;
+      background: #eef5ff;
+    }
+
+    /* Placeholder for missing images */
+    .pencapaian__img[src$=".png"]:not([src^="data"]) {
+      background: linear-gradient(135deg, #dbeeff, #f0f7ff);
+    }
+
+    .pencapaian__title {
+      font-size: 0.84rem; font-weight: 700; color: var(--dark);
+      line-height: 1.4;
+    }
+
+    /* ---- KONTAK ---- */
+    .kontak {
+      background: linear-gradient(160deg, #0b1f3a, #0a3060);
+      padding: 80px 0;
+    }
+
+    .kontak .section__title {
+      background: linear-gradient(135deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .kontak__container {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+
+    .kontak__card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+      overflow: hidden;
+    }
+
+    .kontak__card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(0,198,251,0.3);
+      transform: translateY(-4px);
+    }
+
+    .kontak__content {
+      padding: 2.5rem; text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+    }
+
+    .kontak__icon {
+      font-size: 2.2rem; color: var(--accent);
+      width: 60px; height: 60px;
+      background: rgba(0,198,251,0.12);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .kontak__title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; font-weight: 700; color: white;
+    }
+
+    .kontak__description {
+      font-size: 0.9rem; color: rgba(255,255,255,0.6);
+    }
+
+    .kontak__button {
+      margin-top: 0.5rem;
+      padding: 11px 24px;
+      font-size: 0.88rem;
+    }
+
+    /* ---- PRODUK ---- */
+    .productunggulan {
+      background: var(--white); padding: 80px 0;
+    }
+
+    .products__container {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem;
+    }
+
+    .product__card {
+      background: linear-gradient(145deg, #f7fbff, #eef5ff);
+      border: 1.5px solid rgba(10,116,218,0.1);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .product__card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: rgba(10,116,218,0.3);
+    }
+
+    .product__content { padding: 1.5rem; text-align: center; }
+
+    .product__img {
+      width: 100%; aspect-ratio: 1;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      background: white;
+      padding: 1rem;
+    }
+
+    .product__title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .product__description {
+      font-size: 0.82rem; color: var(--primary); font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background: #071526;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer__copy {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.85rem;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .pencapaian__container { grid-template-columns: repeat(3, 1fr); }
+      .about__container { grid-template-columns: 1fr; }
+      .about__visual { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav__menu {
+        position: fixed; top: 0; right: -100%;
+        width: 260px; height: 100vh;
+        background: white;
+        flex-direction: column;
+        padding: 5rem 2rem 2rem;
+        box-shadow: -8px 0 40px rgba(0,0,0,0.15);
+        transition: right var(--transition);
+        display: flex;
+      }
+
+      .nav__menu.show-menu { right: 0; }
+
+      .nav__list { flex-direction: column; gap: 0.5rem; }
+
+      .nav__link { font-size: 1rem; padding: 12px 16px; }
+
+      .nav__close, .nav__toggle { display: block; }
+
+      .home__container { grid-template-columns: 1fr; gap: 2rem; padding: 40px 1.5rem; }
+      .home__image { order: -1; }
+      .home__img { width: 100%; max
