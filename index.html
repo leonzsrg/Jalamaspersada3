@@ -1,290 +1,151 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV Jala Mas Persada - Spesialis AC Semarang</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Remix Icons -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css_niaga2.css" />
+
   <style>
-    :root {
-      --primary: #0a74da;
-      --primary-dark: #0558a8;
-      --primary-light: #3d9aff;
-      --accent: #00c6fb;
-      --dark: #0b1f3a;
-      --dark-2: #112842;
-      --text: #2e4a6b;
-      --text-light: #6b8aad;
-      --bg: #f0f6ff;
-      --white: #ffffff;
-      --card-bg: rgba(255,255,255,0.85);
-      --shadow: 0 8px 40px rgba(10,116,218,0.12);
-      --radius: 20px;
-      --radius-sm: 12px;
-      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    /* ---- HEADER ---- */
-    .header {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(10,116,218,0.10);
-      box-shadow: 0 2px 24px rgba(10,116,218,0.07);
-      transition: box-shadow var(--transition);
-    }
-
-    .nav {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem; height: 68px;
-    }
-
-    .nav__logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none;
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--dark);
-      letter-spacing: -0.02em;
-    }
-
-    .logo-icon-placeholder {
-      width: 38px; height: 38px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    .nav__list {
-      display: flex; list-style: none; gap: 0.25rem; align-items: center;
-    }
-
-    .nav__link {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.88rem;
-      font-weight: 600;
-      padding: 7px 14px;
-      border-radius: 8px;
-      transition: all var(--transition);
-      white-space: nowrap;
-    }
-
-    .nav__link:hover,
-    .nav__link.active-link {
-      background: rgba(10,116,218,0.09);
-      color: var(--primary);
-    }
-
-    .nav__toggle {
-      display: none;
-      font-size: 1.6rem;
-      cursor: pointer;
-      color: var(--dark);
-    }
-
-    .nav__close {
-      display: none;
-      font-size: 1.6rem;
-      cursor: pointer;
-      color: var(--dark);
-      position: absolute;
-      top: 1rem; right: 1.5rem;
-    }
-
-    /* ---- UTILITIES ---- */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-
-    .section { padding: 80px 0; }
-
-    .section__title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 800;
-      line-height: 1.15;
-      text-align: center;
-      margin-bottom: 3rem;
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .button {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: all var(--transition);
-      box-shadow: 0 4px 20px rgba(10,116,218,0.3);
-      letter-spacing: -0.01em;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(10,116,218,0.45);
-      filter: brightness(1.08);
-    }
-
-    /* ---- HOME ---- */
+    /*====== HOME HERO OVERRIDE — sesuai tampilan di gambar ======*/
     .home {
-      min-height: 100vh;
-      background: linear-gradient(160deg, #e8f4ff 0%, #f0f9ff 40%, #dbeeff 100%);
+      background: linear-gradient(135deg, #e8f4ff 0%, #f5faff 50%, #dbeeff 100%);
       position: relative;
       overflow: hidden;
-      padding-top: 68px;
-      display: flex; align-items: center;
     }
 
     .home::before {
       content: '';
-      position: absolute; top: -120px; right: -120px;
-      width: 600px; height: 600px;
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,198,251,0.18) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(74,144,226,0.15) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    .home::after {
-      content: '';
-      position: absolute; bottom: -80px; left: -80px;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(10,116,218,0.12) 0%, transparent 70%);
-      pointer-events: none;
+    /* Tombol Hubungi Kami Sekarang — teal seperti di gambar */
+    .button--home {
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      color: #fff;
+      border-radius: 50px;
+      padding: 1.1rem 2.2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,119,182,0.35);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
     }
 
-    .home__container {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center;
-      position: relative; z-index: 1;
-      padding: 60px 2rem;
+    .button--home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,119,182,0.5);
+      filter: brightness(1.08);
     }
 
-    .home__image {
-      display: flex; justify-content: center; align-items: center;
+    /* Header — putih bersih seperti di gambar */
+    .header {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
-    .home__img {
-      max-width: 100%; width: 440px;
-      border-radius: var(--radius);
-      box-shadow: 0 24px 64px rgba(10,116,218,0.22);
-      transform: rotate(-1.5deg);
-      transition: transform 0.4s ease;
+    .scroll-header {
+      box-shadow: 0 4px 28px rgba(0,0,0,0.12);
     }
 
-    .home__img:hover { transform: rotate(0deg) scale(1.02); }
-
-    .home__data {
-      display: flex; flex-direction: column; gap: 2rem;
+    /* Nav link aktif — biru */
+    .active-link {
+      color: #0a74da !important;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
     }
 
-    .home__subtitle {
-      font-size: 0.95rem; font-weight: 700;
-      color: var(--primary);
-      text-transform: uppercase; letter-spacing: 0.12em;
-      display: flex; align-items: center; gap: 8px;
-    }
-
-    .home__subtitle::before {
-      content: '';
-      width: 28px; height: 3px;
-      background: var(--primary);
-      border-radius: 2px;
-      display: inline-block;
-    }
-
+    /* Home title — gelap seperti di gambar */
     .home__title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
       font-weight: 800;
-      line-height: 1.1;
-      color: var(--dark);
-      letter-spacing: -0.03em;
-    }
-
-    .home__title span {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      line-height: 1.15;
+      color: #0b1f3a;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      -webkit-text-fill-color: #0b1f3a;
+      margin-bottom: 1rem;
     }
 
     .home__description {
-      color: var(--text-light);
       font-size: 1.05rem;
+      color: #4a6880;
       line-height: 1.7;
+      margin-bottom: 0;
     }
 
-    .home__badges {
-      display: flex; flex-wrap: wrap; gap: 10px;
+    .home__header {
+      margin-bottom: 1.2rem;
     }
 
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: white;
-      border: 1.5px solid rgba(10,116,218,0.15);
-      border-radius: 50px;
-      padding: 6px 14px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--primary);
+    .home__footer {
+      margin-top: 2rem;
     }
 
-    .badge i { font-size: 0.9rem; }
+    /* Section title — biru gradient */
+    .section__title {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      color: #0b1f3a;
+      background: none;
+      -webkit-text-fill-color: #0b1f3a;
+    }
 
-    /* ---- LAYANAN ---- */
+    /* Layanan cards */
     .layanan {
-      background: var(--white);
+      background: #fff;
       padding: 80px 0;
     }
 
     .layanan__grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
 
     .layanan__card {
       background: linear-gradient(145deg, #f7fbff, #eef5ff);
       border: 1.5px solid rgba(10,116,218,0.1);
-      border-radius: var(--radius);
+      border-radius: 1.2rem;
       padding: 2rem;
-      transition: all var(--transition);
-      position: relative; overflow: hidden;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .layanan__card::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      opacity: 0; transition: opacity var(--transition);
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0a74da, #00c6fb);
+      opacity: 0;
+      transition: opacity 0.35s ease;
     }
 
     .layanan__card:hover {
       transform: translateY(-6px);
-      box-shadow: var(--shadow);
+      box-shadow: 0 8px 40px rgba(10,116,218,0.12);
       border-color: rgba(10,116,218,0.25);
     }
 
@@ -295,334 +156,423 @@
       background: linear-gradient(135deg, rgba(10,116,218,0.12), rgba(0,198,251,0.12));
       border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; color: var(--primary);
+      font-size: 1.5rem; color: #0a74da;
       margin-bottom: 1.2rem;
     }
 
     .layanan__title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem; font-weight: 700;
-      color: var(--dark);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0b1f3a;
       margin-bottom: 0.6rem;
     }
 
     .layanan__desc {
       font-size: 0.88rem;
-      color: var(--text-light);
+      color: #6b8aad;
       line-height: 1.65;
     }
 
-    /* ---- TENTANG KAMI ---- */
-    .tentangkami {
-      background: linear-gradient(160deg, #0b1f3a 0%, #0a3060 100%);
-      padding: 80px 0;
-      position: relative; overflow: hidden;
+    /* Scroll up button */
+    .scroll-up {
+      position: fixed;
+      right: 1.5rem; bottom: -30%;
+      background: linear-gradient(135deg, #0a74da, #00c6fb);
+      box-shadow: 0 4px 14px rgba(10,116,218,0.3);
+      display: inline-flex;
+      padding: 0.45rem;
+      border-radius: 0.5rem;
+      z-index: 10;
+      transition: 0.4s;
     }
 
-    .tentangkami::before {
-      content: '';
-      position: absolute; top: -200px; right: -200px;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,198,251,0.08) 0%, transparent 70%);
+    .scroll-up__icon {
+      font-size: 1.5rem;
+      color: #fff;
     }
 
-    .tentangkami .section__title {
-      background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
+    .scroll-up:hover { transform: translateY(-0.25rem); }
 
-    .about__container {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-    }
+    .show-scroll { bottom: 3rem; }
 
-    .about__content { color: rgba(255,255,255,0.85); }
-
-    .about__description {
-      font-size: 1.05rem; line-height: 1.8;
-      margin-bottom: 2.5rem;
-    }
-
-    .about__description strong { color: var(--accent); }
-
-    .about__stats {
-      display: flex; gap: 2rem;
-    }
-
-    .about__stat {
-      display: flex; flex-direction: column; gap: 4px;
-    }
-
-    .stat__number {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.5rem; font-weight: 800;
-      color: white;
-      line-height: 1;
-    }
-
-    .stat__label {
-      font-size: 0.82rem; font-weight: 600;
-      color: rgba(255,255,255,0.55);
-      text-transform: uppercase; letter-spacing: 0.08em;
-    }
-
-    .about__visual {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
-    }
-
-    .about__feat {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-sm);
-      padding: 1.4rem;
-      transition: all var(--transition);
-    }
-
-    .about__feat:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(0,198,251,0.3);
-    }
-
-    .about__feat i {
-      font-size: 1.5rem; color: var(--accent); margin-bottom: 0.6rem; display: block;
-    }
-
-    .about__feat h4 {
-      font-size: 0.9rem; font-weight: 700; color: white; margin-bottom: 0.3rem;
-    }
-
-    .about__feat p {
-      font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.5;
-    }
-
-    /* ---- LOKASI ---- */
-    .lokasi {
-      background: var(--white); padding: 80px 0;
-    }
-
-    .lokasi__container {
-      display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start;
-    }
-
-    .lokasi__info {
-      display: flex; flex-direction: column; gap: 1.5rem;
-    }
-
-    .lokasi__address {
-      background: linear-gradient(145deg, #f0f7ff, #e6f2ff);
-      border: 1.5px solid rgba(10,116,218,0.15);
-      border-radius: var(--radius);
-      padding: 1.8rem;
-    }
-
-    .lokasi__address i {
-      font-size: 1.6rem; color: var(--primary); margin-bottom: 0.8rem; display: block;
-    }
-
-    .lokasi__address h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem;
-    }
-
-    .lokasi__address p {
-      font-size: 0.9rem; color: var(--text-light); line-height: 1.6;
-    }
-
-    .lokasi__address strong { color: var(--text); }
-
-    .lokasi__map iframe {
-      width: 100%; height: 380px;
-      border-radius: var(--radius);
-      border: none;
-      box-shadow: var(--shadow);
-    }
-
-    /* ---- PENCAPAIAN ---- */
-    .pencapaian {
-      background: var(--bg); padding: 80px 0;
-    }
-
-    .pencapaian__container {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
-    }
-
-    .pencapaian__card {
-      background: var(--white);
-      border: 1.5px solid rgba(10,116,218,0.1);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: all var(--transition);
-    }
-
-    .pencapaian__card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-      border-color: rgba(10,116,218,0.25);
-    }
-
-    .pencapaian__content { padding: 1rem; text-align: center; }
-
-    .pencapaian__img {
-      width: 100%; aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: var(--radius-sm);
-      margin-bottom: 0.8rem;
-      background: #eef5ff;
-    }
-
-    /* Placeholder for missing images */
-    .pencapaian__img[src$=".png"]:not([src^="data"]) {
-      background: linear-gradient(135deg, #dbeeff, #f0f7ff);
-    }
-
-    .pencapaian__title {
-      font-size: 0.84rem; font-weight: 700; color: var(--dark);
-      line-height: 1.4;
-    }
-
-    /* ---- KONTAK ---- */
-    .kontak {
-      background: linear-gradient(160deg, #0b1f3a, #0a3060);
-      padding: 80px 0;
-    }
-
-    .kontak .section__title {
-      background: linear-gradient(135deg, #fff, var(--accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-
-    .kontak__container {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    }
-
-    .kontak__card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius);
-      transition: all var(--transition);
-      overflow: hidden;
-    }
-
-    .kontak__card:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(0,198,251,0.3);
-      transform: translateY(-4px);
-    }
-
-    .kontak__content {
-      padding: 2.5rem; text-align: center;
-      display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
-    }
-
-    .kontak__icon {
-      font-size: 2.2rem; color: var(--accent);
-      width: 60px; height: 60px;
-      background: rgba(0,198,251,0.12);
-      border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    .kontak__title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1rem; font-weight: 700; color: white;
-    }
-
-    .kontak__description {
-      font-size: 0.9rem; color: rgba(255,255,255,0.6);
-    }
-
-    .kontak__button {
-      margin-top: 0.5rem;
-      padding: 11px 24px;
-      font-size: 0.88rem;
-    }
-
-    /* ---- PRODUK ---- */
-    .productunggulan {
-      background: var(--white); padding: 80px 0;
-    }
-
-    .products__container {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem;
-    }
-
-    .product__card {
-      background: linear-gradient(145deg, #f7fbff, #eef5ff);
-      border: 1.5px solid rgba(10,116,218,0.1);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: all var(--transition);
-    }
-
-    .product__card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-      border-color: rgba(10,116,218,0.3);
-    }
-
-    .product__content { padding: 1.5rem; text-align: center; }
-
-    .product__img {
-      width: 100%; aspect-ratio: 1;
-      object-fit: contain;
-      border-radius: var(--radius-sm);
-      margin-bottom: 1rem;
-      background: white;
-      padding: 1rem;
-    }
-
-    .product__title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1rem; font-weight: 700; color: var(--dark);
-      margin-bottom: 0.3rem;
-    }
-
-    .product__description {
-      font-size: 0.82rem; color: var(--primary); font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    /* ---- FOOTER ---- */
-    footer {
+    /* Footer */
+    .footer {
       background: #071526;
-      padding: 2rem;
-      text-align: center;
+      padding: 2.5rem 0;
     }
 
     .footer__copy {
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
       font-size: 0.85rem;
     }
 
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 1024px) {
-      .pencapaian__container { grid-template-columns: repeat(3, 1fr); }
-      .about__container { grid-template-columns: 1fr; }
-      .about__visual { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 768px) {
+      .layanan__grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media (max-width: 768px) {
-      .nav__menu {
-        position: fixed; top: 0; right: -100%;
-        width: 260px; height: 100vh;
-        background: white;
-        flex-direction: column;
-        padding: 5rem 2rem 2rem;
-        box-shadow: -8px 0 40px rgba(0,0,0,0.15);
-        transition: right var(--transition);
-        display: flex;
+    @media (min-width: 769px) and (max-width: 1023px) {
+      .layanan__grid {
+        grid-template-columns: repeat(2, 1fr);
       }
+    }
+  </style>
+</head>
 
-      .nav__menu.show-menu { right: 0; }
+<body>
 
-      .nav__list { flex-direction: column; gap: 0.5rem; }
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container" id="nav-menu-wrap">
+      <!-- Logo -->
+      <a href="#" class="nav__logo">
+        <img src="assets/logo-icon.png" alt="JMP Icon" class="logo-icon"
+             onerror="this.style.display='none'" />
+        <img src="assets/logo-text.png" alt="CV. Jala Mas Persada" class="logo-text"
+             onerror="this.outerHTML='<span style=&quot;font-weight:700;font-size:1rem;color:#0b1f3a;&quot;>CV. JALA MAS PERSADA</span>'" />
+      </a>
 
-      .nav__link { font-size: 1rem; padding: 12px 16px; }
+      <!-- Nav Menu -->
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#home" class="nav__link active-link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="#tentangkami" class="nav__link">Tentang Kami</a>
+          </li>
+          <li class="nav__item">
+            <a href="#lokasi" class="nav__link">Lokasi</a>
+          </li>
+          <li class="nav__item">
+            <a href="#pencapaian" class="nav__link">Pencapaian</a>
+          </li>
+          <li class="nav__item">
+            <a href="#kontak" class="nav__link">Kontak kami</a>
+          </li>
+          <li class="nav__item">
+            <a href="#productunggulan" class="nav__link">Product unggulan</a>
+          </li>
+        </ul>
 
-      .nav__close, .nav__toggle { display: block; }
+        <!-- Close button (mobile) -->
+        <i class="ri-close-line nav__close" id="nav-close"></i>
+      </div>
 
-      .home__container { grid-template-columns: 1fr; gap: 2rem; padding: 40px 1.5rem; }
-      .home__image { order: -1; }
-      .home__img { width: 100%; max
+      <!-- Toggle button (mobile) -->
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-menu-line"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!--==================== MAIN ====================-->
+  <main class="main">
+
+    <!--========== HOME ==========-->
+    <section class="home section" id="home">
+      <div class="home__container container grid">
+
+        <!-- Kiri: Gambar flyer/brosur -->
+        <div class="home__image">
+          <img
+            src="assets/brosur-jmp.png"
+            alt="JMP Niaga - Spesialis Pendingin Udara"
+            class="home__img"
+            onerror="this.style.background='#dbeeff';this.style.minHeight='320px'"
+          />
+        </div>
+
+        <!-- Kanan: Teks & CTA -->
+        <div class="home__data">
+          <div class="home__header">
+            <h1 class="home__title">Spesialis AC<br>di Semarang</h1>
+          </div>
+
+          <p class="home__description">
+            Solusi Pendingin Udara Terpercaya untuk<br>
+            Rumah dan Bisnis Anda.
+          </p>
+
+          <div class="home__footer">
+            <a href="#kontak" class="button button--home button--flex">
+              <i class="ri-message-3-line button__icon"></i>
+              Hubungi Kami Sekarang!
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!--========== LAYANAN UNGGULAN ==========-->
+    <section class="layanan section" id="layanan">
+      <div class="container">
+        <h2 class="section__title">Layanan Unggulan</h2>
+
+        <div class="layanan__grid">
+
+          <div class="layanan__card">
+            <div class="layanan__icon">
+              <i class="ri-tools-line"></i>
+            </div>
+            <h3 class="layanan__title">Instalasif</h3>
+            <p class="layanan__desc">
+              Pengerjaan instalasi AC yang rapi dan profesional untuk rumah, kantor, dan industri.
+            </p>
+          </div>
+
+          <div class="layanan__card">
+            <div class="layanan__icon">
+              <i class="ri-settings-3-line"></i>
+            </div>
+            <h3 class="layanan__title">Maintenance</h3>
+            <p class="layanan__desc">
+              Menyegarkan udara, menjaga performa AC tetap optimal dengan servis berkala.
+            </p>
+          </div>
+
+          <div class="layanan__card">
+            <div class="layanan__icon">
+              <i class="ri-file-list-3-line"></i>
+            </div>
+            <h3 class="layanan__title">Puz yularan</h3>
+            <p class="layanan__desc">
+              Polru menatilat menteladah layanan purna jual dan garansi produk terpercaya.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!--========== TENTANG KAMI ==========-->
+    <section class="tentangkami section" id="tentangkami">
+      <div class="container">
+        <h2 class="section__title">Tentang Kami</h2>
+
+        <div class="about__container grid">
+          <div class="about__content">
+            <p class="about__description">
+              <strong>CV. Jala Mas Persada</strong> adalah perusahaan spesialis pendingin udara di Semarang
+              yang telah berpengalaman puluhan tahun melayani kebutuhan AC untuk
+              Perumahan, Perkantoran, Restoran, Sekolah, Pabrik, dan industri lainnya.
+              Kami bermitra dengan <strong>Niaga</strong> untuk memberikan solusi terbaik
+              dengan <strong>jaminan harga grosir</strong>.
+            </p>
+
+            <div class="about__stats">
+              <div class="about__stat">
+                <span class="stat__number">20+</span>
+                <span class="stat__label">Tahun Pengalaman</span>
+              </div>
+              <div class="about__stat">
+                <span class="stat__number">500+</span>
+                <span class="stat__label">Proyek Selesai</span>
+              </div>
+              <div class="about__stat">
+                <span class="stat__number">100%</span>
+                <span class="stat__label">Kepuasan Klien</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--========== LOKASI ==========-->
+    <section class="lokasi section" id="lokasi">
+      <div class="container">
+        <h2 class="section__title">Lokasi</h2>
+
+        <div class="lokasi__data">
+          <p class="lokasi__description">
+            Kami berlokasi di dua titik strategis di Semarang:
+          </p>
+
+          <p style="text-align:center; color:#333; margin-bottom:1.5rem; font-size:1rem;">
+            📍 Jl. Cendrawasih Selatan Kav.15, Semarang<br>
+            📍 Jl. Puri Anjasmoro Blok B1 No.1, Semarang<br><br>
+            📞 (024) 3554149 – 3550969 &nbsp;|&nbsp; 📱 081215000537 (WA)
+          </p>
+
+          <div class="lokasi__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0!2d110.3948!3d-7.0051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDAnMTguNiJTIDExMMKwMjMnNDEuMyJF!5e0!3m2!1sid!2sid!4v1234567890"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Lokasi CV Jala Mas Persada">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--========== PENCAPAIAN ==========-->
+    <section class="pencapaian section" id="pencapaian">
+      <div class="container">
+        <h2 class="section__title">Pencapaian</h2>
+
+        <div class="pencapaian__container grid">
+
+          <article class="pencapaian__card">
+            <div class="pencapaian__content">
+              <img src="assets/pencapaian1.jpg" alt="Pencapaian 1" class="pencapaian__img"
+                   onerror="this.style.background='#dbeeff';this.style.minHeight='200px'" />
+              <p class="pencapaian__title">Instalasi AC Gedung Perkantoran</p>
+            </div>
+          </article>
+
+          <article class="pencapaian__card">
+            <div class="pencapaian__content">
+              <img src="assets/pencapaian2.jpg" alt="Pencapaian 2" class="pencapaian__img"
+                   onerror="this.style.background='#dbeeff';this.style.minHeight='200px'" />
+              <p class="pencapaian__title">Proyek AC Restoran & Hotel</p>
+            </div>
+          </article>
+
+          <article class="pencapaian__card">
+            <div class="pencapaian__content">
+              <img src="assets/pencapaian3.jpg" alt="Pencapaian 3" class="pencapaian__img"
+                   onerror="this.style.background='#dbeeff';this.style.minHeight='200px'" />
+              <p class="pencapaian__title">Servis & Maintenance Pabrik</p>
+            </div>
+          </article>
+
+          <article class="pencapaian__card">
+            <div class="pencapaian__content">
+              <img src="assets/pencapaian4.jpg" alt="Pencapaian 4" class="pencapaian__img"
+                   onerror="this.style.background='#dbeeff';this.style.minHeight='200px'" />
+              <p class="pencapaian__title">Instalasi Duis AC Perumahan</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!--========== KONTAK ==========-->
+    <section class="kontak section" id="kontak">
+      <div class="container">
+        <h2 class="section__title" style="-webkit-text-fill-color:#fff;color:#fff;">Kontak kami</h2>
+
+        <div class="kontak__container grid">
+
+          <div class="kontak__card">
+            <div class="kontak__content">
+              <i class="ri-whatsapp-line kontak__icon"></i>
+              <h3 class="kontak__title">WhatsApp</h3>
+              <span class="kontak__description">081215000537</span>
+              <a href="https://wa.me/6281215000537" target="_blank"
+                 class="button kontak__button button--flex">
+                Chat Sekarang
+                <i class="ri-arrow-right-up-line button__icon"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="kontak__card">
+            <div class="kontak__content">
+              <i class="ri-phone-line kontak__icon"></i>
+              <h3 class="kontak__title">Telepon</h3>
+              <span class="kontak__description">(024) 3554149 – 3550969</span>
+              <a href="tel:+62243554149" class="button kontak__button button--flex">
+                Hubungi
+                <i class="ri-arrow-right-up-line button__icon"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="kontak__card">
+            <div class="kontak__content">
+              <i class="ri-map-pin-line kontak__icon"></i>
+              <h3 class="kontak__title">Alamat</h3>
+              <span class="kontak__description">
+                Jl. Cendrawasih Selatan Kav.15<br>
+                Jl. Puri Anjasmoro Blok B1 No.1<br>
+                Semarang
+              </span>
+              <a href="#lokasi" class="button kontak__button button--flex">
+                Lihat Peta
+                <i class="ri-arrow-right-up-line button__icon"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!--========== PRODUCT UNGGULAN ==========-->
+    <section class="productunggulan section" id="productunggulan">
+      <div class="container">
+        <h2 class="section__title">Product unggulan</h2>
+
+        <div class="products__container grid">
+
+          <article class="product__card">
+            <div class="product__content">
+              <img src="assets/product1.jpg" alt="AC Split" class="product__img bordered-photo"
+                   onerror="this.style.background='#f0f7ff';this.style.minHeight='200px'" />
+              <h3 class="product__title">AC Split</h3>
+              <span class="product__description">Untuk Rumah & Kantor</span>
+            </div>
+          </article>
+
+          <article class="product__card">
+            <div class="product__content">
+              <img src="assets/product2.jpg" alt="AC Cassette" class="product__img bordered-photo"
+                   onerror="this.style.background='#f0f7ff';this.style.minHeight='200px'" />
+              <h3 class="product__title">AC Cassette</h3>
+              <span class="product__description">Untuk Perkantoran & Mall</span>
+            </div>
+          </article>
+
+          <article class="product__card">
+            <div class="product__content">
+              <img src="assets/product3.jpg" alt="AC Floor Standing" class="product__img bordered-photo"
+                   onerror="this.style.background='#f0f7ff';this.style.minHeight='200px'" />
+              <h3 class="product__title">AC Floor Standing</h3>
+              <span class="product__description">Untuk Industri & Pabrik</span>
+            </div>
+          </article>
+
+          <article class="product__card">
+            <div class="product__content">
+              <img src="assets/product4.jpg" alt="Refrigerasi" class="product__img bordered-photo"
+                   onerror="this.style.background='#f0f7ff';this.style.minHeight='200px'" />
+              <h3 class="product__title">Refrigerasi</h3>
+              <span class="product__description">Cold Storage & Freezer</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer">
+    <div class="container footer__container">
+      <p class="footer__copy">
+        &copy; 2025 CV. Jala Mas Persada. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!--==================== SCROLL UP ====================-->
+  <a href="#" class="scroll-up" id="scroll-up">
+    <i class="ri-arrow-up-line scroll-up__icon"></i>
+  </a>
+
+  <!-- ScrollReveal CDN -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- External JS -->
+  <script src="JS_NIAGA.js"></script>
+
+</body>
+</html>
