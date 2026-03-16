@@ -1,578 +1,75 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV Jala Mas Persada - Spesialis AC Semarang</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-  <!-- Remix Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
-  <!-- External CSS -->
-  <link rel="stylesheet" href="css_niaga2.css" />
-
-  <style>
-    /*====== HOME HERO OVERRIDE — sesuai tampilan di gambar ======*/
-    .home {
-      background: linear-gradient(135deg, #e8f4ff 0%, #f5faff 50%, #dbeeff 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .home::before {
-      content: '';
-      position: absolute;
-      top: -100px; right: -100px;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(74,144,226,0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    /* Tombol Hubungi Kami Sekarang — teal seperti di gambar */
-    .button--home {
-      background: linear-gradient(135deg, #00b4d8, #0077b6);
-      color: #fff;
-      border-radius: 50px;
-      padding: 1.1rem 2.2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-      box-shadow: 0 6px 24px rgba(0,119,182,0.35);
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .button--home:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0,119,182,0.5);
-      filter: brightness(1.08);
-    }
-
-    /* Header — putih bersih seperti di gambar */
-    .header {
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-
-    .scroll-header {
-      box-shadow: 0 4px 28px rgba(0,0,0,0.12);
-    }
-
-    /* Nav link aktif — biru */
-    .active-link {
-      color: #0a74da !important;
-      background: none;
-      -webkit-background-clip: unset;
-      background-clip: unset;
-    }
-
-    /* Home title — gelap seperti di gambar */
-    .home__title {
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      font-weight: 800;
-      line-height: 1.15;
-      color: #0b1f3a;
-      background: none;
-      -webkit-background-clip: unset;
-      background-clip: unset;
-      -webkit-text-fill-color: #0b1f3a;
-      margin-bottom: 1rem;
-    }
-
-    .home__description {
-      font-size: 1.05rem;
-      color: #4a6880;
-      line-height: 1.7;
-      margin-bottom: 0;
-    }
-
-    .home__header {
-      margin-bottom: 1.2rem;
-    }
-
-    .home__footer {
-      margin-top: 2rem;
-    }
-
-    /* Section title — biru gradient */
-    .section__title {
-      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-      font-weight: 700;
-      color: #0b1f3a;
-      background: none;
-      -webkit-text-fill-color: #0b1f3a;
-    }
-
-    /* Layanan cards */
-    .layanan {
-      background: #fff;
-      padding: 80px 0;
-    }
-
-    .layanan__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .layanan__card {
-      background: linear-gradient(145deg, #f7fbff, #eef5ff);
-      border: 1.5px solid rgba(10,116,218,0.1);
-      border-radius: 1.2rem;
-      padding: 2rem;
-      transition: all 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .layanan__card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #0a74da, #00c6fb);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-    }
-
-    .layanan__card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 40px rgba(10,116,218,0.12);
-      border-color: rgba(10,116,218,0.25);
-    }
-
-    .layanan__card:hover::before { opacity: 1; }
-
-    .layanan__icon {
-      width: 52px; height: 52px;
-      background: linear-gradient(135deg, rgba(10,116,218,0.12), rgba(0,198,251,0.12));
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; color: #0a74da;
-      margin-bottom: 1.2rem;
-    }
-
-    .layanan__title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #0b1f3a;
-      margin-bottom: 0.6rem;
-    }
-
-    .layanan__desc {
-      font-size: 0.88rem;
-      color: #6b8aad;
-      line-height: 1.65;
-    }
-
-    /* Scroll up button */
-    .scroll-up {
-      position: fixed;
-      right: 1.5rem; bottom: -30%;
-      background: linear-gradient(135deg, #0a74da, #00c6fb);
-      box-shadow: 0 4px 14px rgba(10,116,218,0.3);
-      display: inline-flex;
-      padding: 0.45rem;
-      border-radius: 0.5rem;
-      z-index: 10;
-      transition: 0.4s;
-    }
-
-    .scroll-up__icon {
-      font-size: 1.5rem;
-      color: #fff;
-    }
-
-    .scroll-up:hover { transform: translateY(-0.25rem); }
-
-    .show-scroll { bottom: 3rem; }
-
-    /* Footer */
-    .footer {
-      background: #071526;
-      padding: 2.5rem 0;
-    }
-
-    .footer__copy {
-      color: rgba(255,255,255,0.4);
-      text-align: center;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 768px) {
-      .layanan__grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (min-width: 769px) and (max-width: 1023px) {
-      .layanan__grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Jala Mas Persada - Spesialis AC Semarang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <!--==================== HEADER ====================-->
-  <header class="header" id="header">
-    <nav class="nav container" id="nav-menu-wrap">
-      <!-- Logo -->
-      <a href="#" class="nav__logo">
-        <img src="assets/logo-icon.png" alt="JMP Icon" class="logo-icon"
-             onerror="this.style.display='none'" />
-        <img src="assets/logo-text.png" alt="CV. Jala Mas Persada" class="logo-text"
-             onerror="this.outerHTML='<span style=&quot;font-weight:700;font-size:1rem;color:#0b1f3a;&quot;>CV. JALA MAS PERSADA</span>'" />
-      </a>
-
-      <!-- Nav Menu -->
-      <div class="nav__menu" id="nav-menu">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="#home" class="nav__link active-link">Home</a>
-          </li>
-          <li class="nav__item">
-            <a href="#tentangkami" class="nav__link">Tentang Kami</a>
-          </li>
-          <li class="nav__item">
-            <a href="#lokasi" class="nav__link">Lokasi</a>
-          </li>
-          <li class="nav__item">
-            <a href="#pencapaian" class="nav__link">Pencapaian</a>
-          </li>
-          <li class="nav__item">
-            <a href="#kontak" class="nav__link">Kontak kami</a>
-          </li>
-          <li class="nav__item">
-            <a href="#productunggulan" class="nav__link">Product unggulan</a>
-          </li>
-        </ul>
-
-        <!-- Close button (mobile) -->
-        <i class="ri-close-line nav__close" id="nav-close"></i>
-      </div>
-
-      <!-- Toggle button (mobile) -->
-      <div class="nav__toggle" id="nav-toggle">
-        <i class="ri-menu-line"></i>
-      </div>
-    </nav>
-  </header>
-
-  <!--==================== MAIN ====================-->
-  <main class="main">
-
-    <!--========== HOME ==========-->
-    <section class="home section" id="home">
-      <div class="home__container container grid">
-
-        <!-- Kiri: Gambar flyer/brosur -->
-        <div class="home__image">
-          <img
-            src="assets/brosur-jmp.png"
-            alt="JMP Niaga - Spesialis Pendingin Udara"
-            class="home__img"
-            onerror="this.style.background='#dbeeff';this.style.minHeight='320px'"
-          />
-        </div>
-
-        <!-- Kanan: Teks & CTA -->
-        <div class="home__data">
-          <div class="home__header">
-            <h1 class="home__title">Spesialis AC<br>di Semarang</h1>
-          </div>
-
-          <p class="home__description">
-            Solusi Pendingin Udara Terpercaya untuk<br>
-            Rumah dan Bisnis Anda.
-          </p>
-
-          <div class="home__footer">
-            <a href="#kontak" class="button button--home button--flex">
-              <i class="ri-message-3-line button__icon"></i>
-              Hubungi Kami Sekarang!
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="logo.png" alt="Logo" class="logo-icon"> <span class="logo-text">CV. JALA MAS PERSADA</span>
             </a>
-          </div>
-        </div>
 
-      </div>
-    </section>
-
-    <!--========== LAYANAN UNGGULAN ==========-->
-    <section class="layanan section" id="layanan">
-      <div class="container">
-        <h2 class="section__title">Layanan Unggulan</h2>
-
-        <div class="layanan__grid">
-
-          <div class="layanan__card">
-            <div class="layanan__icon">
-              <i class="ri-tools-line"></i>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#tentangkami" class="nav__link">Tentang Kami</a></li>
+                    <li class="nav__item"><a href="#lokasi" class="nav__link">Lokasi</a></li>
+                    <li class="nav__item"><a href="#pencapaian" class="nav__link">Pencapaian</a></li>
+                    <li class="nav__item"><a href="#kontak" class="nav__link">Kontak Kami</a></li>
+                    <li class="nav__item"><a href="#produk" class="nav__link">Produk Unggulan</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
             </div>
-            <h3 class="layanan__title">Instalasif</h3>
-            <p class="layanan__desc">
-              Pengerjaan instalasi AC yang rapi dan profesional untuk rumah, kantor, dan industri.
-            </p>
-          </div>
 
-          <div class="layanan__card">
-            <div class="layanan__icon">
-              <i class="ri-settings-3-line"></i>
+            <div class="nav__toggle" id="nav-toggle"><i class="ri-function-line"></i></div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__title">Spesialis AC <br> di Semarang</h1>
+                    <p class="home__description">Solusi Pendingin Udara Terpercaya untuk Rumah dan Bisnis Anda.</p>
+                    <a href="https://wa.me/081215000537" class="button button--flex">
+                        <i class="ri-whatsapp-line"></i> Hubungi Kami Sekarang!
+                    </a>
+                </div>
+
+                <div class="home__image">
+                    <img src="hero-ac.jpg" alt="AC Unit" class="home__img"> </div>
             </div>
-            <h3 class="layanan__title">Maintenance</h3>
-            <p class="layanan__desc">
-              Menyegarkan udara, menjaga performa AC tetap optimal dengan servis berkala.
-            </p>
-          </div>
+        </section>
 
-          <div class="layanan__card">
-            <div class="layanan__icon">
-              <i class="ri-file-list-3-line"></i>
+        <section class="layanan section container">
+            <h2 class="section__title">Layanan Unggulan</h2>
+            <div class="layanan__grid grid">
+                <div class="layanan__card">
+                    <i class="ri-tools-line layanan__icon"></i>
+                    <h3 class="layanan__title">Instalasi</h3>
+                    <p class="layanan__desc">Pemasangan AC unit baru secara profesional.</p>
+                </div>
+                <div class="layanan__card">
+                    <i class="ri-shield-check-line layanan__icon"></i>
+                    <h3 class="layanan__title">Maintenance</h3>
+                    <p class="layanan__desc">Perawatan rutin agar AC tetap dingin dan awet.</p>
+                </div>
+                <div class="layanan__card">
+                    <i class="ri-customer-service-2-line layanan__icon"></i>
+                    <h3 class="layanan__title">Pelayanan</h3>
+                    <p class="layanan__desc">Respon cepat dan teknisi yang berpengalaman.</p>
+                </div>
             </div>
-            <h3 class="layanan__title">Puz yularan</h3>
-            <p class="layanan__desc">
-              Polru menatilat menteladah layanan purna jual dan garansi produk terpercaya.
-            </p>
-          </div>
+        </section>
+    </main>
 
-        </div>
-      </div>
-    </section>
-
-    <!--========== TENTANG KAMI ==========-->
-    <section class="tentangkami section" id="tentangkami">
-      <div class="container">
-        <h2 class="section__title">Tentang Kami</h2>
-
-        <div class="about__container grid">
-          <div class="about__content">
-            <p class="about__description">
-              <strong>CV. Jala Mas Persada</strong> adalah perusahaan spesialis pendingin udara di Semarang
-              yang telah berpengalaman puluhan tahun melayani kebutuhan AC untuk
-              Perumahan, Perkantoran, Restoran, Sekolah, Pabrik, dan industri lainnya.
-              Kami bermitra dengan <strong>Niaga</strong> untuk memberikan solusi terbaik
-              dengan <strong>jaminan harga grosir</strong>.
-            </p>
-
-            <div class="about__stats">
-              <div class="about__stat">
-                <span class="stat__number">20+</span>
-                <span class="stat__label">Tahun Pengalaman</span>
-              </div>
-              <div class="about__stat">
-                <span class="stat__number">500+</span>
-                <span class="stat__label">Proyek Selesai</span>
-              </div>
-              <div class="about__stat">
-                <span class="stat__number">100%</span>
-                <span class="stat__label">Kepuasan Klien</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--========== LOKASI ==========-->
-    <section class="lokasi section" id="lokasi">
-      <div class="container">
-        <h2 class="section__title">Lokasi</h2>
-
-        <div class="lokasi__data">
-          <p class="lokasi__description">
-            Kami berlokasi di dua titik strategis di Semarang:
-          </p>
-
-          <p style="text-align:center; color:#333; margin-bottom:1.5rem; font-size:1rem;">
-            📍 Jl. Cendrawasih Selatan Kav.15, Semarang<br>
-            📍 Jl. Puri Anjasmoro Blok B1 No.1, Semarang<br><br>
-            📞 (024) 3554149 – 3550969 &nbsp;|&nbsp; 📱 081215000537 (WA)
-          </p>
-
-          <div class="lokasi__map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0!2d110.3948!3d-7.0051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDAnMTguNiJTIDExMMKwMjMnNDEuMyJF!5e0!3m2!1sid!2sid!4v1234567890"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Lokasi CV Jala Mas Persada">
-            </iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--========== PENCAPAIAN ==========-->
-    <section class="pencapaian section" id="pencapaian">
-      <div class="container">
-        <h2 class="section__title">Pencapaian</h2>
-
-        <div class="pencapaian__container grid">
-
-          <article class="pencapaian__card">
-            <div class="pencapaian__content">
-              <img src="assets/pencapaian1.jpg" alt="Pencapaian 1" class="pencapaian__img"
-                   onerror="this.style.background='#dbeeff';this.style.minHeight='200px'" />
-              <p class="pencapaian__title">Instalasi AC Gedung Perkantoran</p>
-            </div>
-          </article>
-
-          <article class="pencapaian__card">
-            <div class="pencapaian__content">
-              <img src="assets/pencapaian2.jpg" alt="Pencapaian 2" class="pencapaian__img"
-                   onerror="this.style.background='#dbeeff';this.style.minHeight='200px'" />
-              <p class="pencapaian__title">Proyek AC Restoran & Hotel</p>
-            </div>
-          </article>
-
-          <article class="pencapaian__card">
-            <div class="pencapaian__content">
-              <img src="assets/pencapaian3.jpg" alt="Pencapaian 3" class="pencapaian__img"
-                   onerror="this.style.background='#dbeeff';this.style.minHeight='200px'" />
-              <p class="pencapaian__title">Servis & Maintenance Pabrik</p>
-            </div>
-          </article>
-
-          <article class="pencapaian__card">
-            <div class="pencapaian__content">
-              <img src="assets/pencapaian4.jpg" alt="Pencapaian 4" class="pencapaian__img"
-                   onerror="this.style.background='#dbeeff';this.style.minHeight='200px'" />
-              <p class="pencapaian__title">Instalasi Duis AC Perumahan</p>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!--========== KONTAK ==========-->
-    <section class="kontak section" id="kontak">
-      <div class="container">
-        <h2 class="section__title" style="-webkit-text-fill-color:#fff;color:#fff;">Kontak kami</h2>
-
-        <div class="kontak__container grid">
-
-          <div class="kontak__card">
-            <div class="kontak__content">
-              <i class="ri-whatsapp-line kontak__icon"></i>
-              <h3 class="kontak__title">WhatsApp</h3>
-              <span class="kontak__description">081215000537</span>
-              <a href="https://wa.me/6281215000537" target="_blank"
-                 class="button kontak__button button--flex">
-                Chat Sekarang
-                <i class="ri-arrow-right-up-line button__icon"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="kontak__card">
-            <div class="kontak__content">
-              <i class="ri-phone-line kontak__icon"></i>
-              <h3 class="kontak__title">Telepon</h3>
-              <span class="kontak__description">(024) 3554149 – 3550969</span>
-              <a href="tel:+62243554149" class="button kontak__button button--flex">
-                Hubungi
-                <i class="ri-arrow-right-up-line button__icon"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="kontak__card">
-            <div class="kontak__content">
-              <i class="ri-map-pin-line kontak__icon"></i>
-              <h3 class="kontak__title">Alamat</h3>
-              <span class="kontak__description">
-                Jl. Cendrawasih Selatan Kav.15<br>
-                Jl. Puri Anjasmoro Blok B1 No.1<br>
-                Semarang
-              </span>
-              <a href="#lokasi" class="button kontak__button button--flex">
-                Lihat Peta
-                <i class="ri-arrow-right-up-line button__icon"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!--========== PRODUCT UNGGULAN ==========-->
-    <section class="productunggulan section" id="productunggulan">
-      <div class="container">
-        <h2 class="section__title">Product unggulan</h2>
-
-        <div class="products__container grid">
-
-          <article class="product__card">
-            <div class="product__content">
-              <img src="assets/product1.jpg" alt="AC Split" class="product__img bordered-photo"
-                   onerror="this.style.background='#f0f7ff';this.style.minHeight='200px'" />
-              <h3 class="product__title">AC Split</h3>
-              <span class="product__description">Untuk Rumah & Kantor</span>
-            </div>
-          </article>
-
-          <article class="product__card">
-            <div class="product__content">
-              <img src="assets/product2.jpg" alt="AC Cassette" class="product__img bordered-photo"
-                   onerror="this.style.background='#f0f7ff';this.style.minHeight='200px'" />
-              <h3 class="product__title">AC Cassette</h3>
-              <span class="product__description">Untuk Perkantoran & Mall</span>
-            </div>
-          </article>
-
-          <article class="product__card">
-            <div class="product__content">
-              <img src="assets/product3.jpg" alt="AC Floor Standing" class="product__img bordered-photo"
-                   onerror="this.style.background='#f0f7ff';this.style.minHeight='200px'" />
-              <h3 class="product__title">AC Floor Standing</h3>
-              <span class="product__description">Untuk Industri & Pabrik</span>
-            </div>
-          </article>
-
-          <article class="product__card">
-            <div class="product__content">
-              <img src="assets/product4.jpg" alt="Refrigerasi" class="product__img bordered-photo"
-                   onerror="this.style.background='#f0f7ff';this.style.minHeight='200px'" />
-              <h3 class="product__title">Refrigerasi</h3>
-              <span class="product__description">Cold Storage & Freezer</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!--==================== FOOTER ====================-->
-  <footer class="footer">
-    <div class="container footer__container">
-      <p class="footer__copy">
-        &copy; 2025 CV. Jala Mas Persada. All rights reserved.
-      </p>
-    </div>
-  </footer>
-
-  <!--==================== SCROLL UP ====================-->
-  <a href="#" class="scroll-up" id="scroll-up">
-    <i class="ri-arrow-up-line scroll-up__icon"></i>
-  </a>
-
-  <!-- ScrollReveal CDN -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <!-- External JS -->
-  <script src="JS_NIAGA.js"></script>
-
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="script.js"></script>
 </body>
 </html>
